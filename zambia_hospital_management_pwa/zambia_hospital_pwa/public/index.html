@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-ZM">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d766e">
+  <meta name="description" content="Zambia Hospital Management System">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <title>ZamCare — Hospital Management</title>
+</head>
+<body>
+  <div id="loginView" class="login-shell">
+    <section class="login-brand">
+      <div class="brand-mark">✚</div>
+      <p class="eyebrow">ZAMBIA HEALTHCARE</p>
+      <h1>Care that<br>connects us.</h1>
+      <p class="muted-light">Appointments, patient records and clinical teams in one secure workspace.</p>
+      <div class="login-location">🇿🇲 <span>Zambia · Africa/Lusaka</span></div>
+    </section>
+    <section class="login-panel">
+      <div class="brand-inline"><span class="brand-mark small">✚</span><strong>ZamCare</strong></div>
+      <p class="eyebrow">WELCOME BACK</p>
+      <h2>Sign in to your workspace</h2>
+      <p class="subtext">Use your assigned account to continue.</p>
+      <form id="loginForm">
+        <label>Email address<input name="email" type="email" autocomplete="username" required placeholder="you@example.zm"></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required placeholder="Enter password"></label>
+        <button class="primary full" type="submit">Sign in <span>→</span></button>
+        <p id="loginError" class="error" role="alert"></p>
+      </form>
+      <details class="demo-access"><summary>Demo account access</summary><p>Admin: admin@demo.zm / Admin123!</p><p>Doctor: doctor@demo.zm / Doctor123!</p><p>Nurse: nurse@demo.zm / Nurse123!</p><p>Patient: patient@demo.zm / Patient123!</p></details>
+      <p class="fine-print">Demo build · Do not enter real patient information.</p>
+    </section>
+  </div>
+
+  <div id="appView" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand-inline"><span class="brand-mark small">✚</span><strong>ZamCare</strong></div>
+      <div class="facility-label">HOSPITAL WORKSPACE</div>
+      <nav id="nav">
+        <button class="nav-item active" data-page="overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-page="appointments"><span>▣</span> Appointments</button>
+        <button class="nav-item" data-page="patients"><span>♡</span> Patients</button>
+        <button class="nav-item" data-page="services"><span>⌖</span> Local services</button>
+        <button class="nav-item" data-page="payments"><span>◇</span> Payments</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="secure-note"><span>●</span><div><strong>Workspace</strong><small>Role-based access</small></div></div><button id="logoutBtn" class="logout">↪ <span>Sign out</span></button></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-button mobile-only" aria-label="Open menu">☰</button>
+        <div><div class="eyebrow" id="todayLabel">ZAMBIA HEALTHCARE</div><div class="top-title" id="pageTitle">Overview</div></div>
+        <div class="top-actions"><button id="installBtn" class="outline hidden">Install app</button><div class="time-pill"><span class="live-dot"></span><span id="clock">--:--</span><span class="timezone">CAT</span></div><div class="avatar" id="avatar">U</div><div class="user-meta"><strong id="userName">User</strong><small id="userRole">Role</small></div></div>
+      </header>
+      <div id="notice" class="notice hidden" role="status"></div>
+      <section id="pageContent" class="page-content" aria-live="polite"></section>
+      <footer>© <span id="year"></span> ZamCare · Zambia · <span id="networkState">Connecting…</span></footer>
+    </main>
+  </div>
+  <div id="modalRoot"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="/app.js"></script>
+</body>
+</html>
